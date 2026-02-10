@@ -39,6 +39,7 @@
  # QEMU
   environment.systemPackages = with pkgs; [
 
+    podman-compose
     qemu
     virt-manager
     usbutils

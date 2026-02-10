@@ -69,6 +69,9 @@ in {
 
     pkgs.libreoffice-fresh
 
+    pkgs.monero-gui
+    pkgs.eigenwallet
+
     /*
     # Mes clés SSH sont stockées sur YubiKey.
     yubikey-manager
@@ -455,7 +458,7 @@ extensions.packages = [
       fi
       
       # Ajout au PATH
-      export PATH="$PATH:/home/gustav/.local/jdk-21.0.1+12/bin:/home/gustav/.local/ghidra_10.4_PUBLIC:/home/gustav/Bureau/ngl/target/debug/:/home/gustav/Téléchargements/ideaIU-2023.3.3/idea-IU-233.14015.106/bin/:/usr/lib/postgresql/16/bin/"
+      export PATH="$PATH:/home/gustav/.local/jdk-21.0.1+12/bin:/home/gustav/.local/ghidra_10.4_PUBLIC:/home/gustav/Bureau/ngl/target/debug/:/home/gustav/Téléchargements/ideaIU-2023.3.3/idea-IU-233.14015.106/bin/:/usr/lib/postgresql/16/bin/:/home/gustav/.cargo/bin/"
     '';
   };
 
@@ -494,17 +497,29 @@ extensions.packages = [
         <command>${pkgs.gnome-terminal}/bin/gnome-terminal</command>
       </action>
     </item>
-    <item label="Cursor">
-      <action name="Execute">
-        <command>cursor</command>
-      </action>
-    </item>
     <separator/>
+    <menu id="apps-menu" label="Apps">
       <item label="Zotero">
         <action name="Execute">
           <command>${pkgs.zotero}/bin/zotero</command>
         </action>
       </item>
+      <item label="Cursor">
+        <action name="Execute">
+          <command>cursor</command>
+        </action>
+      </item>
+      <item label="LibreOffice">
+        <action name="Execute">
+          <command>libreoffice</command>
+        </action>
+      </item>
+      <item label="Monero wallet">
+        <action name="Execute">
+          <command>monero-wallet-gui</command>
+        </action>
+      </item>
+    </menu>
     <separator/>
       <item label="KeePassXC">
         <action name="Execute">
