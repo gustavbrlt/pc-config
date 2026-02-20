@@ -402,6 +402,7 @@ extensions.packages = [
       update="sys-update";
       rebuild="git -C /etc/nixos add . && sudo nixos-rebuild switch --flake /etc/nixos/#default && s";
       rb="rebuild";
+      ns="nix-shell";
 
       # We explictly put nvim instead of using the 'e' alias
       # since the 'e' alias could theorically not support
