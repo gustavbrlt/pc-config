@@ -500,6 +500,11 @@ extensions.packages = [
     </item>
     <separator/>
     <menu id="apps-menu" label="Apps">
+      <item label="Screenshot">
+        <action name="Execute">
+          <command>${pkgs.flameshot}/bin/flameshot gui</command>
+        </action>
+      </item>
       <item label="Zotero">
         <action name="Execute">
           <command>${pkgs.zotero}/bin/zotero</command>
@@ -528,11 +533,6 @@ extensions.packages = [
         </action>
       </item>
     <separator/>
-      <item label="Screenshot">
-        <action name="Execute">
-          <command>${pkgs.flameshot}/bin/flameshot gui</command>
-        </action>
-      </item>
     
     <!-- <menu id="multimedia-menu" label="Other">
       <item label="VLC">
