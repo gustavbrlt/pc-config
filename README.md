@@ -1,6 +1,6 @@
 Pour afficher ce README: 
 ```sh
-curl https://raw.githubusercontent.com/gustavbrlty/tmp_cnfg/refs/heads/main/README.md
+curl https://raw.githubusercontent.com/gustavbrlt/pc-config/refs/heads/main/README.md
 ```
 
 Première étape, préparer l'installation:
@@ -14,7 +14,7 @@ nix-shell -p git
 
 Puis lancer l'installation (attention: ne fonctionne que si le disque est chiffré):
 ```sh
-sudo git clone https://github.com/gustavbrlty/tmp_cnfg.git
+sudo git clone https://github.com/gustavbrlt/pc-config.git
 sudo mv tmp_cnfg/* . && sudo mv tmp_cnfg/.git . && sudo rm -r tmp_cnfg
 # 2. On extrait les 3 UUIDs dans des variables
 NEW_BOOT=$(sed -n '/fileSystems."\/boot"/,/}/s/.*by-uuid\/\([^"]*\).*/\1/p' /tmp/hardware-temp.nix)
