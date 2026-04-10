@@ -415,7 +415,9 @@ extensions.packages = [
 
       infos = "printf '\n**HEURE & DATE**:\n' && date && 
                printf '\n**BATTERIE**:\n' && acpi -b && 
-               printf '\n**WIFI**:\n' && wpa_cli status | grep -E '^(ssid|wifi_generation|wpa_state|key_mgmt|ip_address)=' | awk -F= '{print $1 \"=\" $2}' &&
+               printf '\n**RESEAU**:\n' && 
+               nmcli -t -f NAME,DEVICE connection show --active | head -n 1 | awk -F: '{print \"Connected to \" $1 \" via interface \" $2}' && 
+               printf 'Having the following IP : %s\n' \"$(hostname -I | awk '{print $1}')\" && 
                printf '\n**HDD**:\n' && df -h / &&
                printf '\n**RAM**:\n' && free -h";
       i="infos";
