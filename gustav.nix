@@ -1,4 +1,4 @@
-{ config, pkgs, pkgs-unstable, ... }:
+{ inputs, config, pkgs, pkgs-unstable, ... }:
 
 let
 
@@ -96,6 +96,9 @@ in {
     # '')
 
     pkgs.flameshot # To be able to take screenshots.
+
+    # mistral-vibe
+    inputs.mistral-vibe.packages.${pkgs.system}.default
   
   ];
 

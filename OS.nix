@@ -195,6 +195,7 @@
   ];
 
   services.gpm.enable = true;
+  services.blueman.enable = true;
 
   # Gemini says to absolutely not edit this.
   # because he says that it corresponds

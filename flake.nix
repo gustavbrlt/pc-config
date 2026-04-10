@@ -5,6 +5,9 @@
 
     nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
     pkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+
+    mistral-vibe.url = "github:mistralai/mistral-vibe";
+    mistral-vibe.inputs.nixpkgs.follows = "nixpkgs";
     
     home-manager = {
       url = "github:nix-community/home-manager/release-25.11";

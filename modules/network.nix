@@ -6,6 +6,8 @@
 # par exemple: avec NetworkManager je peux utiliser la wifi d'EPITA, mais
 # en utilisant wpa_supplicant ca ne marche pas car wpa_supplicant ne gere pas
 # aussi bien le Split-DNS.
+# NetworkManager peut etre utilise via cli avec : nmcli, nmtui, nm-applet,
+# ou nm-connection-editor.
 
 let
 
@@ -56,9 +58,9 @@ in {
   sops.templates = 
     # 1. Réseaux personnels (WPA-PSK) via la fonction
     (mkWifi "Partage de connexion" "Ani ben Hashem" config.sops.placeholder.partage_de_connexion 1) //
-    (mkWifi "V.Sardou"             "Livebox-DA90"   config.sops.placeholder."V.Sardou"       0) //
-    (mkWifi "Flandrin"             "Bbox-E2EA0B39"  config.sops.placeholder.Flandrin         0) //
-    (mkWifi "Blonville"            "Karin"          config.sops.placeholder.Blonville        0) //
+    (mkWifi "V.Sardou"             "Livebox-DA90"   config.sops.placeholder."V.Sardou"           0) //
+    (mkWifi "Flandrin"             "Bbox-E2EA0B39"  config.sops.placeholder.Flandrin             0) //
+    (mkWifi "Blonville"            "Karin"          config.sops.placeholder.Blonville            0) //
 
     # 2. Réseau EPITA (WPA-EAP) - Trop spécifique pour la fonction générique, on le laisse en manuel
     {
@@ -91,7 +93,7 @@ in {
   # 3. Définition des réseaux publics (Profils)
   networking.networkmanager.ensureProfiles.profiles = 
 
-  let free_wifi1 = ssid: {
+  let free_wifi = ssid: {
       connection = {
         id = ssid;
         type = "wifi";
@@ -105,7 +107,9 @@ in {
     
   in {
 
-    "BPI_Bercy_Lumiere"  = free_wifi1 "WIFI-BPI"; 
-    # "Bercy_Lumiere"  = free_wifi1 "Lumiere_Visiteurs"; n'a pas marche (le 16/12). 
+    "BnF Francois Mitterand"  = free_wifi "BNF"; 
+
+    "BPI Bercy Lumiere (1)"  = free_wifi "WIFI-BPI"; 
+    # "BPI Bercy Lumiere (2)"  = free_wifi1 "Lumiere_Visiteurs"; n'a pas marche (le 16/12). 
   };
 }
