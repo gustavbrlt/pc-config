@@ -15,7 +15,7 @@ nix-shell -p git
 Puis lancer l'installation (attention: ne fonctionne que si le disque est chiffré):
 ```sh
 sudo git clone https://github.com/gustavbrlt/pc-config.git
-sudo mv tmp_cnfg/* . && sudo mv tmp_cnfg/.git . && sudo rm -r tmp_cnfg
+sudo mv pc-config/* . && sudo mv pc-config/.git . && sudo rm -r pc-config
 # 2. On extrait les 3 UUIDs dans des variables
 NEW_BOOT=$(sed -n '/fileSystems."\/boot"/,/}/s/.*by-uuid\/\([^"]*\).*/\1/p' /tmp/hardware-temp.nix)
 NEW_ROOT=$(sed -n '/fileSystems."\/"/,/}/s/.*by-uuid\/\([^"]*\).*/\1/p' /tmp/hardware-temp.nix)
