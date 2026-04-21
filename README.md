@@ -1,3 +1,5 @@
+Attention: ``gustav`` est considéré être le nom de l'utilisateur.
+
 Pour afficher ce README: 
 ```sh
 curl https://raw.githubusercontent.com/gustavbrlt/pc-config/refs/heads/main/README.md
@@ -26,7 +28,7 @@ NEW_BOOT=$(sed -n '/fileSystems."\/boot"/,/}/s/.*by-uuid\/\([^"]*\).*/\1/p' ~/ha
 NEW_LUKS=$(sed -n '/boot.initrd.luks.devices/,/;/s/.*by-uuid\/\([^"]*\).*/\1/p' ~/hardware-configuration.nix)
 
 # 3. On applique les changements dans hardware/common.nix
-# Remplacement de l'UUID de Root (Système de fichier interne)
+# Remplacement de l'UUID de Root
 sed -i "/fileSystems.\"\/\"/,/}/ s|by-uuid/[^\"]*|by-uuid/$NEW_ROOT|" hardware/common.nix
 
 # Si le disque est chiffré :
