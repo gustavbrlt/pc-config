@@ -15,7 +15,7 @@ nix-shell -p git
 Puis lancer l'installation (attention: ne fonctionne que si le disque est chiffré):
 ```sh
 sudo git clone https://github.com/gustavbrlt/pc-config.git
-sudo mv pc-config/* . && sudo mv pc-config/.git . && sudo rm -r pc-config
+sudo mv pc-config/* . && sudo mv pc-config/.git . && sudo mv pc-config/.config . && sudo rm -r pc-config
 
 # 2. On extrait l'UUID dans une variable.
 NEW_ROOT=$(sed -n '/fileSystems."\/"/,/}/s/.*by-uuid\/\([^"]*\).*/\1/p' ~/hardware-configuration.nix)
