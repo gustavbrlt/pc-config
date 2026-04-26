@@ -565,7 +565,7 @@ extensions.packages = [
     <menu id="system-menu" label="System">
       <item label="Infos (Super+I)">
         <action name="Execute">
-          <command>${pkgs.xterm}/bin/xterm -title "Infos systeme" -geometry 91x19 -fa "Monospace" -fs 11 -e bash -i -c 'infos; echo ""; echo "Appuyez sur Entree pour fermer..."; read'</command>
+          <command>${pkgs.xterm}/bin/xterm -title "Infos systeme" -geometry 89x21 -fa "Monospace" -fs 11 -e bash -i -c 'infos; echo ""; echo "Appuyez sur Entree pour fermer..."; read'</command>
         </action>
       </item>
       <separator/>
@@ -907,7 +907,7 @@ extensions.packages = [
       </keybind>
       <keybind key="W-i"> <!-- i pour infos systeme -->
         <action name="Execute">
-          <command>${pkgs.xterm}/bin/xterm -title "Infos systeme" -geometry 91x19 -fa "Monospace" -fs 11 -e bash -i -c 'infos; echo ""; echo "Appuyez sur Entree pour fermer..."; read'</command>
+          <command>${pkgs.xterm}/bin/xterm -title "Infos systeme" -geometry 89x21 -fa "Monospace" -fs 11 -e bash -i -c 'infos; echo ""; echo "Appuyez sur Entree pour fermer..."; read'</command>
         </action>
       </keybind>
     </keyboard>
