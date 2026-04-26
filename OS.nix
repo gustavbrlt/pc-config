@@ -75,7 +75,20 @@
     LC_TIME = "fr_FR.UTF-8";
   };
 
-  # security.polkit.enable = true; 
+  # security.polkit.enable = true;
+
+  # Permettre à gustav d'exécuter xinit sans mot de passe (pour start-my-x automatique)
+  security.sudo.extraRules = [
+    {
+      users = [ "gustav" ];
+      commands = [
+        {
+          command = "${pkgs.xorg.xinit}/bin/xinit";
+          options = [ "NOPASSWD" ];
+        }
+      ];
+    }
+  ];
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;

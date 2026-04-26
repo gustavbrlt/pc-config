@@ -308,7 +308,14 @@ extensions.packages = [
   # Configuration bash complète avec traçage automatique des alias
   programs.bash = {
     enable = true;
-    
+
+    # Démarrage automatique de X si on est sur tty1 et qu'il n'y a pas de session X
+    profileExtra = ''
+      if [ -z "$DISPLAY" ] && [ "$(tty)" = "/dev/tty1" ]; then
+        start-my-x
+      fi
+    '';
+
     # Configuration de l'historique
     shellOptions = [
       "histappend"   # Append to history file
