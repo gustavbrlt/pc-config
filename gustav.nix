@@ -145,8 +145,15 @@ in {
         visibleName = "gustave-profile";
         default = true;
         font = "Monospace 11"; # Police taille 11
-        showScrollbar = false; 
+        showScrollbar = false;
       };
+    };
+  };
+
+  # Raccourcis clavier gnome-terminal
+  dconf.settings = {
+    "org/gnome/terminal/legacy/keybindings" = {
+      close-tab = "<Control>w";
     };
   };
 
@@ -420,13 +427,13 @@ extensions.packages = [
       config="nvim -p /etc/nixos/OS.nix /etc/nixos/gustav.nix /etc/nixos/modules/network.nix -c \"tabnext 2\"";
       cnf="config";
 
-      infos = "printf '\n**HEURE & DATE**:\n' && date &&
-               printf '\n**BATTERIE**:\n' && acpi -b &&
-               printf '\n**RESEAU**:\n' &&
+      infos = "printf '\n━━ HEURE & DATE:\n' && date &&
+               printf '\n━━ BATTERIE:\n' && acpi -b &&
+               printf '\n━━ RESEAU:\n' &&
                printf 'Connected to %s (%s) via interface %s\n' \"$(nmcli -t -f NAME connection show --active | head -n 1)\" \"$(ip route | grep default | awk '{print $3}')\" \"$(nmcli -t -f DEVICE connection show --active | head -n 1)\" &&
                printf 'Having the following IP : %s\n' \"$(hostname -I | awk '{print $1}')\" && 
-               printf '\n**HDD**:\n' && df -h / &&
-               printf '\n**RAM**:\n' && free -h";
+               printf '\n━━ HDD:\n' && df -h / &&
+               printf '\n━━ RAM:\n' && free -h";
       i="infos";
     };
 
