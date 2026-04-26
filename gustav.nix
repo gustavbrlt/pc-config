@@ -912,6 +912,11 @@ extensions.packages = [
           <command>${pkgs.xterm}/bin/xterm -title "Infos systeme" -geometry 89x21 -fa "Monospace" -fs 11 -e bash -i -c 'infos; echo ""; echo "Appuyez sur Entree pour fermer..."; read'</command>
         </action>
       </keybind>
+      <keybind key="W-l"> <!-- l pour lock (verrouiller) -->
+        <action name="Execute">
+          <command>slock</command>
+        </action>
+      </keybind>
     </keyboard>
   </openbox_config>
     '';
