@@ -47,6 +47,7 @@ in {
     pkgs.libinput-gestures
     pkgs.sops
     pkgs.typst
+    pkgs.xterm
 
     pkgs.zotero
 
@@ -562,11 +563,10 @@ extensions.packages = [
     </menu> -->
 
     <menu id="system-menu" label="System">
-      <item label="Infos (Super+I)"> 
-        <action name="Execute">                                                                                                         
-        <command>${pkgs.gnome-terminal}/bin/gnome-terminal --geometry=80x18 -- bash -i                                                
-             -c 'infos; echo ""; echo "Appuyez sur Entree pour fermer..."; read'</command> 
-        </action>                                                                                                                       
+      <item label="Infos (Super+I)">
+        <action name="Execute">
+          <command>${pkgs.xterm}/bin/xterm -title "Infos systeme" -geometry 91x19 -fa "Monospace" -fs 11 -e bash -i -c 'infos; echo ""; echo "Appuyez sur Entree pour fermer..."; read'</command>
+        </action>
       </item>
       <separator/>
       <item label="Sortie audiovisuel">
@@ -676,6 +676,13 @@ extensions.packages = [
           <width>1200</width>
           <height>700</height>
         </size>
+        <position force="yes">
+          <x>center</x>
+          <y>center</y>
+        </position>
+      </application>
+      <application title="Infos systeme">
+        <focus>yes</focus>
         <position force="yes">
           <x>center</x>
           <y>center</y>
@@ -898,10 +905,10 @@ extensions.packages = [
           <command>${pkgs.keepassxc}/bin/keepassxc</command>
         </action>
       </keybind>
-      <keybind key="W-i"> <!-- i pour infos systeme -->                                                                               
-        <action name="Execute">                                                                                                       
-          <command>${pkgs.gnome-terminal}/bin/gnome-terminal --geometry=80x18 -- bash -i -c 'infos; echo ""; echo "Appuyez sur Entree pour fermer..."; read'</command> 
-        </action> 
+      <keybind key="W-i"> <!-- i pour infos systeme -->
+        <action name="Execute">
+          <command>${pkgs.xterm}/bin/xterm -title "Infos systeme" -geometry 91x19 -fa "Monospace" -fs 11 -e bash -i -c 'infos; echo ""; echo "Appuyez sur Entree pour fermer..."; read'</command>
+        </action>
       </keybind>
     </keyboard>
   </openbox_config>
