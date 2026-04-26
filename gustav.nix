@@ -562,6 +562,13 @@ extensions.packages = [
     </menu> -->
 
     <menu id="system-menu" label="System">
+      <item label="Infos (Super+I)"> 
+        <action name="Execute">                                                                                                         
+        <command>${pkgs.gnome-terminal}/bin/gnome-terminal --geometry=80x18 -- bash -i                                                
+             -c 'infos; echo ""; echo "Appuyez sur Entree pour fermer..."; read'</command> 
+        </action>                                                                                                                       
+      </item>
+      <separator/>
       <item label="Sortie audiovisuel">
         <action name="Execute">
           <command>${pkgs.arandr}/bin/arandr</command>
@@ -890,6 +897,11 @@ extensions.packages = [
         <action name="Execute">
           <command>${pkgs.keepassxc}/bin/keepassxc</command>
         </action>
+      </keybind>
+      <keybind key="W-i"> <!-- i pour infos systeme -->                                                                               
+        <action name="Execute">                                                                                                       
+          <command>${pkgs.gnome-terminal}/bin/gnome-terminal --geometry=80x18 -- bash -i -c 'infos; echo ""; echo "Appuyez sur Entree pour fermer..."; read'</command> 
+        </action> 
       </keybind>
     </keyboard>
   </openbox_config>
