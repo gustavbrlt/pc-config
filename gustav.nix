@@ -508,60 +508,6 @@ extensions.packages = [
 <?xml version="1.0" encoding="UTF-8"?>
 <openbox_menu xmlns="http://openbox.org/3.4/menu">
   <menu id="root-menu" label="Openbox 3">
-    <item label="Firefox (Super+W)">
-      <action name="Execute">
-        <command>${pkgs.firefox}/bin/firefox</command>
-      </action>
-    </item>
-    <item label="Terminal (Super+Enter)">
-      <action name="Execute">
-        <command>${pkgs.gnome-terminal}/bin/gnome-terminal</command>
-      </action>
-    </item>
-    <separator/>
-    <menu id="apps-menu" label="Apps">
-      <item label="Screenshot">
-        <action name="Execute">
-          <command>${pkgs.flameshot}/bin/flameshot gui</command>
-        </action>
-      </item>
-      <item label="Zotero">
-        <action name="Execute">
-          <command>${pkgs.zotero}/bin/zotero</command>
-        </action>
-      </item>
-      <item label="Cursor">
-        <action name="Execute">
-          <command>cursor</command>
-        </action>
-      </item>
-      <item label="LibreOffice">
-        <action name="Execute">
-          <command>libreoffice</command>
-        </action>
-      </item>
-      <item label="Monero wallet">
-        <action name="Execute">
-          <command>monero-wallet-gui</command>
-        </action>
-      </item>
-    </menu>
-    <separator/>
-      <item label="KeePassXC (Super+K)">
-        <action name="Execute">
-          <command>${pkgs.keepassxc}/bin/keepassxc</command>
-        </action>
-      </item>
-    <separator/>
-    
-    <!-- <menu id="multimedia-menu" label="Other">
-      <item label="VLC">
-        <action name="Execute">
-          <command>${pkgs.vlc}/bin/vlc</command>
-        </action>
-      </item>
-    </menu> -->
-
     <menu id="system-menu" label="System">
       <item label="Infos (Super+I)">
         <action name="Execute">
@@ -608,6 +554,62 @@ extensions.packages = [
         </action>
     </item>
     </menu>
+
+    <separator/>
+    <item label="Firefox (Super+W)">
+      <action name="Execute">
+        <command>${pkgs.firefox}/bin/firefox</command>
+      </action>
+    </item>
+    <item label="Terminal (Super+Enter)">
+      <action name="Execute">
+        <command>${pkgs.gnome-terminal}/bin/gnome-terminal</command>
+      </action>
+    </item>
+    <separator/>
+      <item label="KeePassXC (Super+K)">
+        <action name="Execute">
+          <command>${pkgs.keepassxc}/bin/keepassxc</command>
+        </action>
+      </item>
+    <separator/>
+    
+    <!-- <menu id="multimedia-menu" label="Other">
+      <item label="VLC">
+        <action name="Execute">
+          <command>${pkgs.vlc}/bin/vlc</command>
+        </action>
+      </item>
+    </menu> -->
+    
+    <menu id="apps-menu" label="Apps">
+      <item label="Screenshot">
+        <action name="Execute">
+          <command>${pkgs.flameshot}/bin/flameshot gui</command>
+        </action>
+      </item>
+      <item label="Zotero">
+        <action name="Execute">
+          <command>${pkgs.zotero}/bin/zotero</command>
+        </action>
+      </item>
+      <item label="Cursor">
+        <action name="Execute">
+          <command>cursor</command>
+        </action>
+      </item>
+      <item label="LibreOffice">
+        <action name="Execute">
+          <command>libreoffice</command>
+        </action>
+      </item>
+      <item label="Monero wallet">
+        <action name="Execute">
+          <command>monero-wallet-gui</command>
+        </action>
+      </item>
+    </menu>
+
   </menu>
 </openbox_menu>
       '';
