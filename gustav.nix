@@ -500,12 +500,12 @@ extensions.packages = [
 <?xml version="1.0" encoding="UTF-8"?>
 <openbox_menu xmlns="http://openbox.org/3.4/menu">
   <menu id="root-menu" label="Openbox 3">
-    <item label="Firefox">
+    <item label="Firefox (Super+W)">
       <action name="Execute">
         <command>${pkgs.firefox}/bin/firefox</command>
       </action>
     </item>
-    <item label="Terminal">
+    <item label="Terminal (Super+Enter)">
       <action name="Execute">
         <command>${pkgs.gnome-terminal}/bin/gnome-terminal</command>
       </action>
@@ -539,7 +539,7 @@ extensions.packages = [
       </item>
     </menu>
     <separator/>
-      <item label="KeePassXC">
+      <item label="KeePassXC (Super+K)">
         <action name="Execute">
           <command>${pkgs.keepassxc}/bin/keepassxc</command>
         </action>
@@ -865,6 +865,23 @@ extensions.packages = [
       <keybind key="C-Escape">
         <action name="ShowMenu">
           <menu>root-menu</menu>
+        </action>
+      </keybind>
+
+      <!-- Raccourcis pour lancer des applications -->
+      <keybind key="W-w"> <!-- w pour web -->
+        <action name="Execute">
+          <command>${pkgs.firefox}/bin/firefox</command>
+        </action>
+      </keybind>
+      <keybind key="W-Return">
+        <action name="Execute">
+          <command>${pkgs.gnome-terminal}/bin/gnome-terminal</command>
+        </action>
+      </keybind>
+      <keybind key="W-k"> <!-- k pour keepass -->
+        <action name="Execute">
+          <command>${pkgs.keepassxc}/bin/keepassxc</command>
         </action>
       </keybind>
     </keyboard>
