@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, pkgs-unstable, ... }:
 
 let
   # --- Variables pour la configuration du Cloud ---
@@ -10,13 +10,15 @@ in {
   # ==========================================
   # 1. Logiciels
   # ==========================================
-  environment.systemPackages = with pkgs; [
-    killall
-    keepassxc          # Le gestionnaire de mots de passe
+  environment.systemPackages = [
+    pkgs.killall
+    
+    # pkgs. prend tout de meme les maj de corrections.
+    pkgs.keepassxc          # Le gestionnaire de mots de passe
     
     # Outils optionnels pour YubiKey 
-    yubikey-manager    # CLI (ykman)
-    yubioath-flutter   # GUI (Yubico Authenticator)
+    pkgs.yubikey-manager    # CLI (ykman)
+    pkgs.yubioath-flutter   # GUI (Yubico Authenticator)
   ];
 
   home-manager.users.${user} = {
