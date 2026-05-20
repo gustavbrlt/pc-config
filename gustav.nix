@@ -50,6 +50,7 @@ in {
     pkgs.xterm
 
     pkgs.zotero
+    pkgs.tigervnc
 
     # lecteur video, j'ai teste, et 
     # je l'ai trouve mieux que vlc

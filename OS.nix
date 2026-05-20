@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running 'nixos-help').
 
-{ config, pkgs, inputs, ... }:
+{ config, pkgs, pkgs-unstable, inputs, ... }:
 
 {
   imports =
@@ -116,6 +116,14 @@
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
+  services.printing.drivers = [ pkgs.gutenprint ];
+
+  # Découverte des imprimantes réseau (mDNS/DNS-SD)
+  services.avahi = {
+    enable = true;
+    nssmdns4 = true;
+    openFirewall = true;
+  };
 
   programs.nix-ld.enable = true;
   programs.nix-ld.libraries = with pkgs; [
@@ -186,6 +194,12 @@
   users.groups.libvirtd.members = ["gustav"];
   programs.dconf.enable = true;
   virtualisation.spiceUSBRedirection.enable = true;
+
+  nixpkgs.overlays = [ # temporary, to use the relative new Mullvad feature.
+    (self: super: {
+      tailscale = pkgs-unstable.tailscale;
+    })
+  ];
   services.tailscale.enable = true;
 
   # Packages système
