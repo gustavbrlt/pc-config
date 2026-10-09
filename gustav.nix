@@ -55,6 +55,10 @@ in {
     pkgs.tigervnc
     pkgs.zip
 
+    # pour youmd
+    pkgs.mdbook 
+    pkgs.age
+
     # pour creer un partage de connexion plus simplement 
     # (dans la mesure ou ca permet de recuperer des infos 
     # plus facilement) depuis cet ordinateur
@@ -536,13 +540,59 @@ in {
 <?xml version="1.0" encoding="UTF-8"?>
 <openbox_menu xmlns="http://openbox.org/3.4/menu">
   <menu id="root-menu" label="Openbox 3">
-    <menu id="system-menu" label="System">
-      <item label="Infos (Super+I)">
+    <menu id="apps-menu" label="Apps">
+      <item label="Screenshot">
         <action name="Execute">
-          <command>${pkgs.xterm}/bin/xterm -title "Infos systeme" -geometry 89x21 -fa "Monospace" -fs 11 -e bash -i -c 'infos; echo ""; echo "Appuyez sur Entree pour fermer..."; read'</command>
+          <command>${pkgs.flameshot}/bin/flameshot gui</command>
+        </action>
+      </item>
+      <item label="LibreOffice">
+        <action name="Execute">
+          <command>libreoffice</command>
+        </action>
+      </item>
+      <item label="Zotero">
+        <action name="Execute">
+          <command>${pkgs.zotero}/bin/zotero</command>
+        </action>
+      </item>
+      <item label="Monero wallet">
+        <action name="Execute">
+          <command>monero-wallet-gui</command>
+        </action>
+      </item>
+    <!-- <menu id="multimedia-menu" label="Other">
+      <item label="VLC">
+        <action name="Execute">
+          <command>${pkgs.vlc}/bin/vlc</command>
+        </action>
+      </item>
+    </menu> -->
+      <item label="Cursor">
+        <action name="Execute">
+          <command>cursor</command>
         </action>
       </item>
       <separator/>
+      <item label="Firefox (Super+W)">
+        <action name="Execute">
+          <command>${pkgs.firefox}/bin/firefox</command>
+        </action>
+      </item>
+      <item label="Terminal (Super+Enter)">
+        <action name="Execute">
+          <command>${pkgs.gnome-terminal}/bin/gnome-terminal</command>
+        </action>
+      </item>
+      <separator/>
+        <item label="KeePassXC (Super+K)">
+          <action name="Execute">
+            <command>${pkgs.keepassxc}/bin/keepassxc</command>
+          </action>
+        </item>
+    </menu>
+
+    <menu id="system-menu" label="System">
       <item label="Sortie vidéo">
         <action name="execute">
           <command>${pkgs.arandr}/bin/arandr</command>
@@ -567,6 +617,12 @@ in {
         </action>
       </item>
       <separator/>
+      <item label="Infos (Super+I)">
+        <action name="Execute">
+          <command>${pkgs.xterm}/bin/xterm -title "Infos systeme" -geometry 89x21 -fa "Monospace" -fs 11 -e bash -i -c 'infos; echo ""; echo "Appuyez sur Entree pour fermer..."; read'</command>
+        </action>
+      </item>
+      <separator/>
       <item label="Verrouiller la session">
         <action name="Execute">
             <command>slock</command>
@@ -587,62 +643,6 @@ in {
         </action>
     </item>
     </menu>
-
-    <separator/>
-    <item label="Firefox (Super+W)">
-      <action name="Execute">
-        <command>${pkgs.firefox}/bin/firefox</command>
-      </action>
-    </item>
-    <item label="Terminal (Super+Enter)">
-      <action name="Execute">
-        <command>${pkgs.gnome-terminal}/bin/gnome-terminal</command>
-      </action>
-    </item>
-    <separator/>
-      <item label="KeePassXC (Super+K)">
-        <action name="Execute">
-          <command>${pkgs.keepassxc}/bin/keepassxc</command>
-        </action>
-      </item>
-    <separator/>
-    
-    <!-- <menu id="multimedia-menu" label="Other">
-      <item label="VLC">
-        <action name="Execute">
-          <command>${pkgs.vlc}/bin/vlc</command>
-        </action>
-      </item>
-    </menu> -->
-    
-    <menu id="apps-menu" label="Apps">
-      <item label="Screenshot">
-        <action name="Execute">
-          <command>${pkgs.flameshot}/bin/flameshot gui</command>
-        </action>
-      </item>
-      <item label="Zotero">
-        <action name="Execute">
-          <command>${pkgs.zotero}/bin/zotero</command>
-        </action>
-      </item>
-      <item label="Cursor">
-        <action name="Execute">
-          <command>cursor</command>
-        </action>
-      </item>
-      <item label="LibreOffice">
-        <action name="Execute">
-          <command>libreoffice</command>
-        </action>
-      </item>
-      <item label="Monero wallet">
-        <action name="Execute">
-          <command>monero-wallet-gui</command>
-        </action>
-      </item>
-    </menu>
-
   </menu>
 </openbox_menu>
       '';
